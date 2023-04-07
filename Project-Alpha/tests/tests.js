@@ -15,6 +15,16 @@ const completeTest = document.getElementById('completeTest');
 const testResults = document.getElementById('testResults');
 const newTest = document.getElementById('newTest');
 const restartTest = document.getElementById('restartTest');
+const showAdvancedOptions = document.getElementById('moreOptions');
+const hideAdvancedOptions = document.getElementById('hideOptions');
+const moreOptions = document.getElementsByClassName('moreOptions');
+const presetOptions = document.getElementsByClassName('presetOptions');
+const testTypeInput = document.getElementById('testType');
+const grade = document.getElementById('grade');
+const errorList = document.getElementById('errorList');
+const modal = document.getElementById('errorModal');
+const close = document.getElementById('close');
+
 
 //Variables
 let numQs, maxNum, minNum = 0;
@@ -32,7 +42,7 @@ let time2 = 0;
 
 //Functions
 const randInt = (min, max) => {
-    // A proper random integer function; min/max inclusive. credit: W3Schools.com
+    // A proper random integer function; min/max inclusive. 
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
@@ -41,8 +51,10 @@ const getTestParameters = () => {
     maxNum = Number(document.getElementById('maxNum').value);
     minNum = Number(document.getElementById('minNum').value);
     testType = document.getElementById('testType').value;
-    setTestType(testType);
     decLen = Number(document.getElementById('decimalLength').value);
+
+    setTestType(testType);
+
     if (repeatQuestion.value === 'Yes') {
         repQ = true;
     } else {
@@ -193,6 +205,7 @@ const generateTestResults = () => {
     percentScore = parseFloat(((correctQs/numQs) * 100).toFixed(1));
     activeTest.style.display = 'none';
     completeTest.style.display = 'flex';
+
     if (percentScore >= 90) {
         color = 'LightGreen';
     } else if (percentScore >= 80) {
@@ -206,6 +219,7 @@ const generateTestResults = () => {
     } else {
         color = 'Red';
     }
+
     testResults.innerHTML = `
     You Scored: % <span style="color:${color}">${percentScore}</span> <br>
     Correct Questions: ${correctQs}/${numQs} <br>
@@ -226,15 +240,142 @@ const calcTime = () => {
     
 }
 
+const setPresets = () => {
+    switch (grade.value) {
+        case '1':
+            document.getElementById('numQuestions').value = '10';
+            document.getElementById('maxNum').value = '10';
+            document.getElementById('minNum').value = '0';           
+            document.getElementById('decimalLength').value = '1';
+            repeatQuestion.value = 'Yes';
+            negAnswers.value = 'No';
+
+            return;
+        
+        case '2':
+            document.getElementById('numQuestions').value = '15';
+            document.getElementById('maxNum').value = '15';
+            document.getElementById('minNum').value = '0';           
+            document.getElementById('decimalLength').value = '1';
+            repeatQuestion.value = 'Yes';
+            negAnswers.value = 'No';
+            return;
+        
+        case '3':
+            document.getElementById('numQuestions').value = '20';
+            document.getElementById('maxNum').value = '25';
+            document.getElementById('minNum').value = '0';           
+            document.getElementById('decimalLength').value = '2';
+            repeatQuestion.value = 'Yes';
+            negAnswers.value = 'No';
+            return;
+
+        case '4':
+            document.getElementById('numQuestions').value = '25';
+            if (testTypeInput.value === 'Addition' || testTypeInput.value === 'Subtraction') {
+                document.getElementById('maxNum').value = '100';
+            } else {
+                document.getElementById('maxNum').value = '50';
+            }
+            document.getElementById('minNum').value = '-25';           
+            document.getElementById('decimalLength').value = '3';
+            repeatQuestion.value = 'Yes';
+            negAnswers.value = 'Yes';
+            return;
+
+        case '5':
+            document.getElementById('numQuestions').value = '25';
+            if (testTypeInput.value === 'Addition' || testTypeInput.value === 'Subtraction') {
+                document.getElementById('maxNum').value = '250';
+            } else {
+                document.getElementById('maxNum').value = '75';
+            }
+            document.getElementById('minNum').value = '-50';           
+            document.getElementById('decimalLength').value = '3';
+            repeatQuestion.value = 'Yes';
+            negAnswers.value = 'Yes';
+            return;
+
+        case '6':
+            document.getElementById('numQuestions').value = '25';
+            if (testTypeInput.value === 'Addition' || testTypeInput.value === 'Subtraction') {
+                document.getElementById('maxNum').value = '500';
+            } else {
+                document.getElementById('maxNum').value = '100';
+            }
+            document.getElementById('minNum').value = '-100';           
+            document.getElementById('decimalLength').value = '3';
+            repeatQuestion.value = 'Yes';
+            negAnswers.value = 'Yes';
+            return;
+    }
+}
+
+const validateInput = () => {
+    let errors = 0;
+
+    if(numQs < 1) {
+        let node = document.createElement('li');
+        let textNode = document.createTextNode('Number of questions is less than 1; you must have at least one question.')
+        node.appendChild(textNode);
+        errorList.appendChild(node);
+        errors += 1;
+    }
+    if(numQs > 100) {
+        let node = document.createElement('li');
+        let textNode = document.createTextNode('Number of questions is greater than 100; 100 is the maximum number of questions.');
+        node.appendChild(textNode);
+        errorList.appendChild(node);
+
+        errors += 1;
+    }
+    if(maxNum <= minNum) {
+        let node = document.createElement('li');
+        let textNode = document.createTextNode('The highest number must be greater than the lowest number.');
+        node.appendChild(textNode);
+        errorList.appendChild(node);
+
+        errors += 1;
+    }
+    if(maxNum > 1000) {
+        let node = document.createElement('li');
+        let textNode = document.createTextNode('Highest number is greater than 1000; 1000 is the highest allowed number.');
+        node.appendChild(textNode);
+        errorList.appendChild(node);
+
+        errors += 1;
+    }
+    if(minNum < -1000) {
+        let node = document.createElement('li');
+        let textNode = document.createTextNode('Lowest number is less than -1000; -1000 is the lowest allowed number.');
+        node.appendChild(textNode);
+        errorList.appendChild(node);
+
+        errors += 1;
+    }
+
+    if(errors > 0){
+        modal.style.display = 'block';
+        return true;
+    } else {
+        return false;
+    }
+}
+
 //Event handlers
 generateButton.addEventListener('click', (event) => {
     event.preventDefault();
-    document.getElementById("test-container").style.display = 'block';
     getTestParameters();
+    if (validateInput()){
+        return;
+    }
     resetTest();
+    document.getElementById("test-container").style.display = 'block';
+    
     let {strParam,numParam} = generateQuestion();
     strQuestion = strParam;
     answer = numParam;
+
     setQuestionPrompt(strQuestion, qCounter, numQs);
     if (qCounter === 1) {
         time1 = Date.now();
@@ -276,6 +417,7 @@ enterAnswer.addEventListener('keyup', (event) => {
 });
 
 submitButton.addEventListener('click', (event) => {
+    event.preventDefault();
     errorPrompt.innerHTML = '';
 
         if (enterAnswer.value === ''){
@@ -302,4 +444,96 @@ submitButton.addEventListener('click', (event) => {
             setQuestionPrompt(strQuestion, qCounter, numQs);
         }
 
+        enterAnswer.focus();
+
+});
+
+newTest.addEventListener('click', (event) => {
+    event.preventDefault();
+    document.getElementById("test-container").style.display = 'none';
+
+});
+
+restartTest.addEventListener('click', (event) => {
+    event.preventDefault();
+    resetTest();
+
+    let {strParam,numParam} = generateQuestion();
+    strQuestion = strParam;
+    answer = numParam;
+
+    setQuestionPrompt(strQuestion, qCounter, numQs);
+    if (qCounter === 1) {
+        time1 = Date.now();
+    }
+
+
+});
+
+showAdvancedOptions.addEventListener('click', (event) => {
+    event.preventDefault();
+    for (let i = 0; i < moreOptions.length; i++) {
+        moreOptions[i].style.display= 'block';
+    }
+    for (let i = 0; i < presetOptions.length; i++) {
+        presetOptions[i].style.display = 'none';
+    }
+
+    if (document.getElementById('gradeDiv').style.display === 'none') {
+        if (testTypeInput.value === "Division") {
+            document.getElementById('decLen').style.display = 'block';
+        } else {
+            document.getElementById('decLen').style.display = 'none';
+        }
+    }
+});
+
+hideAdvancedOptions.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    for (let i = 0; i < moreOptions.length; i++) {
+        moreOptions[i].style.display= 'none';
+    }
+    for (let i = 0; i < presetOptions.length; i++) {
+        presetOptions[i].style.display = 'block';
+    }
+
+    if (document.getElementById('gradeDiv').style.display === 'none') {
+        if (testTypeInput.value === "Division") {
+            document.getElementById('decLen').style.display = 'block';
+        } else {
+            document.getElementById('decLen').style.display = 'none';
+        }
+    }
+});
+
+testTypeInput.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    if (document.getElementById('gradeDiv').style.display === 'none') {
+        grade.value = '';
+        if (testTypeInput.value === "Division") {
+            document.getElementById('decLen').style.display = 'block';
+        } else {
+            document.getElementById('decLen').style.display = 'none';
+        }
+    }
+    setPresets();
+});
+
+grade.addEventListener('click', (event) => {
+    event.preventDefault();
+    setPresets();
+});
+
+window.addEventListener('click', (event) => {
+    if(event.target === modal) {
+        modal.style.display = 'none';
+        errorList.innerHTML = '';
+    }
+});
+
+close.addEventListener('click', (event) => {
+    modal.style.display = 'none';
+    errorList.innerHTML = '';
 });

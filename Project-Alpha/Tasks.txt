@@ -1,0 +1,35 @@
+This is a place to contain a list of tasks to complete.
+- Questions to clear up
+  -
+  
+- Test Your skills
+  - Options
+    -
+    
+  - Styling
+    -
+    - consider making the question display as number over the top of another number
+    - change the font or font size of the <p> tags for easier readability
+    
+    
+       
+- Practice Sheets
+  -
+  - Import test options to practice sheets
+  - Import javascript logic related to generating questions to practice sheets
+  - Generate answer key with questions
+  - Practice sheets print styling
+  
+- Contact Us
+  -
+  - Populate page with content
+  
+- Mobile Friendly
+  -
+  - Make the nav bar int a hamburger menu
+  - advanced options menu for tests
+  - adjust main section width to 100% viewport width when viewport is less than (x) px wide
+  - change margin right for header to move it to the right side of the screen, to make room for the logo
+  
+
+  
