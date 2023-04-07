@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width"/>
+        <meta author="Jager Cooper" content="MathMountain" />
+        <link rel="stylesheet" href="../style.css"/>
+        <link rel="stylesheet" href="tests.css"/>
+        <script src="tests.js" defer></script>
+
+        <title>MathMountain</title>
+    </head>
+    <body>
+        <header>
+            
+            <div id="header-container">
+                <h1>MathMountain.io</h1>
+                <em>Climb to the top of education.</em>
+            </div>
+        </header>
+        <main>
+            <nav id="main-nav">
+                <ul>
+                    <li><a id="home" href="../index.html">Home</a></li>
+                    <li><a id="test-your-skills" href=#>Test Your Skills</a></li>
+                    <li><a id="practice-sheets" href=#>Practice Sheets</a></li>
+                    <li><a id="contact-us" href=#>Contact Us</a></li>
+                </ul>
+            </nav>
+
+            <div id="errorModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span id="close">&times;</span>
+                    <h2>Errors With Settings</h2>
+                    <ol id="errorList">
+
+                    </ol>
+                </div>
+              
+            </div>
+
+            <section id="tests">
+                <h2>Test Your Skills</h2>
+                <p>Welcome to test your skills, Choose from the options below to setup your test. <br> 
+                    When your ready click the 'Generate' button and your test will appear.</p>
+                
+                <div id="test-options">
+                    <div class="moreOptions">
+                        <label for="numQuestions"> Number of Questions:</label>
+                        <input id="numQuestions" name="numQuestions" value="25" type="number" min="1" max="100" />
+                    </div>
+                    <div class="moreOptions">
+                        <label for="minNum">Lowest Number:</label>
+                        <input id="minNum" name="smallestNum" value="0" type="number" />
+                    </div>
+                    <div class="moreOptions">
+                        <label for="maxNum">Highest Number:</label>
+                        <input id="maxNum" name="largestNum" value="10" type="number" />
+                    </div>
+                    <div id='gradeDiv' class="presetOptions">
+                        <label for="grade">Grade Level:</label>
+                        <select id="grade" name="grade">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+                    </div>  
+                    <div class="options">
+                        <label for="testType">Test Type:</label>
+                        <select id="testType" name="testType">
+                            <option value="Addition">Addition</option>
+                            <option value="Subtraction">Subtraction</option>
+                            <option value="Multiplication">Multiplication</option>
+                            <option value="Division">Division</option>
+                        </select>
+                    </div>  
+                    <div id="decLen" class="moreOptions">
+                        <label for="decimalLength">Decimal Places:</label>
+                        <select id="decimalLength" name="decimalLength">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3" selected>3</option>
+                        </select>
+                    </div>
+                    <div class="moreOptions">
+                        <label for="repeatQuestion">Repeated Questions?</label>
+                        <select id="repeatQuestion" name="repeatQuestion">
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="moreOptions">
+                        <label for="negAnswers">Negative Answers?</label>
+                        <select id="negAnswers" name="negAnswers">
+                            <option value="yes">Yes</option>
+                            <option value="no" selected>No</option>
+                        </select>
+                    </div>
+                    <div class="presetOptions">
+                        <button class="button" id="moreOptions" type="button">Show Advanced Options</button>
+                    </div>
+                    <div class="moreOptions">
+                        <button class="button" id="hideOptions" type="button">Hide Advanced Options</button>
+                    </div>
+                    <div class="options">
+                        <button class="button" id="generateButton" type="button">Generate</button>
+                    </div>
+                </div>
+
+                <div id="test-container">
+                    <h3 id="testHeader">Addition</h3>
+                    <div id="test-window">
+                        <div id="log">
+                            
+                        </div>
+                        
+                        <div id="QNA">
+                            <div id="activeTest" class="borderless">
+                                <p id="questionPrompt"></p>
+                                <label for="enterAnswer">Enter an answer :</label>
+                                <input id="enterAnswer" name="enterAnswer" value="" type="number" min="0"/>
+                                <button id="submitButton" type="button">Submit</button>
+                                <p id="errorPrompt"></p>
+                            </div>
+                            <div id="completeTest" class="borderless">
+                                <div class="flexgrow borderless">
+                                    <p id="testResults">
+                                    You Scored: <br>
+                                    Correct Questions: <br>
+                                    Time to Complete: <br>
+                                    </p>
+                                </div>
+                                <div class="flexgrow flexCol borderless">
+                                    <div class="flexgrow borderless">
+                                        <button class="button" id="newTest" type="button">New Test</button>
+                                    </div>
+                                    <div class="flexgrow borderless">
+                                        <button class="button " id="restartTest" type="button">Restart Test</button>
+                                    </div>
+                                </div>
+                                
+
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+
+             
+            </section>
+        </main>
+        <footer>
+            Created By Jager Cooper
+        </footer>
+        
+
+    </body>
+</html>
