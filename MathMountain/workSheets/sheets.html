@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width"/>
+        <meta author="Jager Cooper" content="MathMountain" />
+        <link rel="stylesheet" href="../style.css"/>
+        <link rel="stylesheet" href="sheets.css"/>
+        <link rel="stylesheet" href="print.css" media="print" />
+        <script src="sheets.js" defer></script>
+        
+
+        <title>MathMountain</title>
+    </head>
+    <body>
+        <header>
+            <div id="header-container">
+                <h1>MathMountain</h1>
+                <em>Climb to the top of education.</em>
+            </div>
+            <div id="printHeader">
+                <div class="centerDiv">
+                    <img class="squishFix" src="../images/MMlogo64px.png">
+                    <h1>MathMountain</h1>
+                </div>
+                
+            </div>
+        </header>
+        <main>
+            <nav id="main-nav">
+                <ul>
+                    <li><a id="home" href="../index.html">Home</a></li>
+                    <li><a id="test-your-skills" href="../tests/tests.html">Test Your Skills</a></li>
+                    <li><a id="practice-sheets" href=#>Practice Sheets</a></li>
+                    <li><a id="contact-us" href=#>Contact Us</a></li>
+                </ul>
+            </nav>
+
+            <div id="errorModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span id="close">&times;</span>
+                    <h2>Errors With Settings</h2>
+                    <ol id="errorList">
+
+                    </ol>
+                </div>
+              
+            </div>
+
+            <section>
+                <h2>Practice Sheets</h2>
+                <p id="intro">Welcome to practice sheets, Choose from the options below to setup your printable sheet. <br> 
+                    When your ready click the 'Generate' button and your practice sheet will be generated.<br>
+                    If you are satisfied with the generated questions click the 'Print' button, choose your printer, or print to pdf to save the practice sheet as a file.
+                </p>
+                
+                <div id="test-options">
+                    <div class="moreOptions">
+                        <label for="numQuestions"> Number of Questions:</label>
+                        <input id="numQuestions" name="numQuestions" value="10" type="number" min="1" max="100" />
+                    </div>
+                    <div class="moreOptions">
+                        <label for="minNum">Lowest Number:</label>
+                        <input id="minNum" name="smallestNum" value="0" type="number" />
+                    </div>
+                    <div class="moreOptions">
+                        <label for="maxNum">Highest Number:</label>
+                        <input id="maxNum" name="largestNum" value="10" type="number" />
+                    </div>
+                    <div id='gradeDiv' class="presetOptions">
+                        <label for="grade">Grade Level:</label>
+                        <select id="grade" name="grade">
+                            <option value="1" selected>1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+                    </div>  
+                    <div class="options">
+                        <label for="testType">Test Type:</label>
+                        <select id="testType" name="testType">
+                            <option value="Addition" selected>Addition</option>
+                            <option value="Subtraction">Subtraction</option>
+                            <option value="Multiplication">Multiplication</option>
+                            <option value="Division">Division</option>
+                        </select>
+                    </div>  
+                    <div id="decLen" class="moreOptions">
+                        <label for="decimalLength">Decimal Places:</label>
+                        <select id="decimalLength" name="decimalLength">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3" selected>3</option>
+                        </select>
+                    </div>
+                    <div class="moreOptions">
+                        <label for="repeatQuestion">Repeated Questions?</label>
+                        <select id="repeatQuestion" name="repeatQuestion">
+                            <option value="yes" selected>Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="moreOptions">
+                        <label for="negAnswers">Negative Answers?</label>
+                        <select id="negAnswers" name="negAnswers">
+                            <option value="yes">Yes</option>
+                            <option value="no" selected>No</option>
+                        </select>
+                    </div>
+                    <div class="presetOptions">
+                        <button class="button" id="moreOptions" type="button">Show Advanced Options</button>
+                    </div>
+                    <div class="moreOptions">
+                        <button class="button" id="hideOptions" type="button">Hide Advanced Options</button>
+                    </div>
+                    <div class="options">
+                        <button class="button" id="generateButton" type="button">Generate</button>
+                    </div>
+                    <div class="options">
+                        <button class="button" id="print" type="button" onclick="window.print()">Print</button>
+                    </div>
+                </div>
+
+                <div id="practiceSheet">
+                </div>
+
+        </main>
+        <footer>
+            Created By Jager Cooper
+        </footer>
+        
+
+    </body>
+</html>

@@ -1,0 +1,235 @@
+/* Style sheet specific to the practice sheets section*/
+/* || Section Styles */
+
+section h2 {
+    text-align: center;
+}
+
+section p {
+    border-radius: 10px;
+}
+
+input {
+    border:none;
+    padding:5px;
+}
+
+#intro {
+    text-align: center;
+}
+
+#printHeader {
+    text-align: center;
+    display:none;
+}
+
+/* Method to hide arrows on number inputs */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+  -webkit-appearance: textfield;
+  appearance: textfield;
+  /* Firefox */
+}
+
+button:hover {
+    cursor:pointer;
+    background-color: #3d5a80;
+    color:white;
+    font-weight: bold;
+}
+
+/* || Classes */
+.presetOptions, .moreOptions, .options {
+    flex-grow: 1;
+    border: 1px solid;
+    border-radius: 10px;
+    padding:10px;
+    text-align: center;
+    margin:auto;
+    height:50px;
+}
+
+.moreOptions {
+    display:none;
+}
+
+.centerDiv{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.squishFix {
+    object-fit: none;
+}
+
+.flexgrow {
+    flex-grow: 1;
+    text-align: center;
+    margin:auto;
+}
+
+.borderless {
+    border:none !important;
+}
+
+.button {
+    height:100%;
+    width:100%;
+    border-radius: 10px;
+    border-color: transparent;
+    color: #ee6c4d;
+    background-color: transparent;
+    font-size: inherit;
+    background-color:#98c1d9;
+    color:#293241;
+    font-weight: bold;
+    
+}
+
+.flexCol {
+    display:flex;
+    flex-flow: column;
+    justify-content: space-between;
+}
+
+.questionNum {
+    float:left;
+}
+
+.question {
+    min-width:130px;
+    max-width: 200px;
+    max-height: 150px;
+    border:1px solid #ee6c4d;
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+/* || Sheet Styles */
+#practiceSheet {
+    display: none;
+    flex-flow: row wrap;
+    align-content: stretch;
+    align-items: stretch;
+    justify-content: space-evenly;
+    column-gap: 10px;
+    padding: 10px;
+    border: 3px solid #ee6c4d;
+    border-radius: 25px;
+    
+}
+
+#practiceSheet div,p {
+    border: 3px solid #ee6c4d;
+    padding:10px;
+    color:white;
+    text-align: right;
+}
+
+#practiceSheet p {
+    border-radius: 15px;
+    flex-grow: 1;
+}
+/* || Options styles */
+
+#test-options {
+    padding:10px;
+    margin: 10px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    gap:20px;
+}
+
+#test-options input {
+    width:40px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#test-options select {
+    padding: 3px;
+    border-radius: 10px;
+    
+}
+
+
+/* || Modal Styles*/
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #293241;
+    margin: 25% auto; 
+    padding: 20px;
+    border: 3px solid #ee6c4d;
+    border-radius: 25px;
+    width: 80%; 
+}
+
+.modal-content h2 {
+    border:none !important;
+    text-align: center;
+    
+}
+
+.modal-content ol li {
+    font-weight: bolder;
+    color:white;
+    list-style: upper-roman;
+}
+
+#close {
+    color: #aaa;
+    float: right;
+    font-size: 30px;
+    font-weight: bold;
+}
+  
+#close:hover, #close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@media print {
+    footer, nav, #test-options, #intro, h2, #header-container  {
+        display:none;
+    }
+
+    #printHeader {
+        display:block;
+    }
+    main,section {
+        width:auto;
+        min-height:900px;
+        margin:auto;
+        margin-top:10px;
+
+    }
+    div, main, section {
+        border:none !important;
+    }
+    section{
+        margin-top:-25px;
+    }
+    p {
+        color:black;
+        
+    }
+}
