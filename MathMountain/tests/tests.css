@@ -78,7 +78,6 @@ button:hover {
     flex-flow: column;
     justify-content: space-between;
     
-    
 }
 
 /* || Test Styles */
@@ -135,7 +134,9 @@ button:hover {
     grid-area: QNA;
     border-radius: 25px 25px 0 0;
     overflow:hidden;
-    height:175px;
+    height:auto;
+    padding-top:0px !important;
+    padding-bottom: 0px !important;
     
 }
 
@@ -159,11 +160,13 @@ button:hover {
 
 #activeTest {
     margin-top: -10px;
+    padding-top:0px;
     
 }
 
 #completeTest {
     margin-top: -10px;
+    padding-top:0px;
     display:none;
     flex-flow:row;
     justify-content: space-around;
@@ -254,3 +257,8 @@ button:hover {
     cursor: pointer;
 }
 
+@media screen and (max-width: 1000px) {
+    #test-window {
+        width: auto !important;
+    }
+}

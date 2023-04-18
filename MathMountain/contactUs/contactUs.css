@@ -1,1 +1,9 @@
-/*contact us style sheet
+/*contact us style sheet */
+a {
+    color: #98c1d9;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ee6c4d;
+}

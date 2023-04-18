@@ -13,7 +13,7 @@ color 5: #293241 dark grey
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 html {
-    min-width:480px;
+    min-width:525px;
 }
 
 body {
@@ -117,4 +117,15 @@ footer {
     color:#ee6c4d;
     border-top: 3px solid #ee6c4d;
     
+}
+
+@media screen and (max-width: 1000px) {
+    main {
+        width:auto !important;
+    }
+
+    section {
+        width: 100% !important;
+        margin:auto;
+    }
 }
