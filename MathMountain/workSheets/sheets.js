@@ -2,7 +2,6 @@
 const generateButton = document.getElementById('generateButton');
 const repeatQuestion = document.getElementById('repeatQuestion');
 const negAnswers = document.getElementById('negAnswers');
-const decPlaces = document.getElementById('decPlaces');
 const showAdvancedOptions = document.getElementById('moreOptions');
 const hideAdvancedOptions = document.getElementById('hideOptions');
 const moreOptions = document.getElementsByClassName('moreOptions');
@@ -22,7 +21,7 @@ let strQuestion = '';
 let answer = 0;
 let negA = false;
 let repQ = true;
-let decLen = 0;
+let decLen = 2;
 
 //Functions
 const randInt = (min, max) => {
@@ -35,7 +34,7 @@ const getTestParameters = () => {
     maxNum = Number(document.getElementById('maxNum').value);
     minNum = Number(document.getElementById('minNum').value);
     testType = document.getElementById('testType').value;
-    decLen = Number(document.getElementById('decimalLength').value);
+    
 
     setTestType(testType);
 
@@ -143,7 +142,7 @@ const setPresets = () => {
             document.getElementById('numQuestions').value = '10';
             document.getElementById('maxNum').value = '10';
             document.getElementById('minNum').value = '0';           
-            document.getElementById('decimalLength').value = '1';
+            
             repeatQuestion.value = 'Yes';
             negAnswers.value = 'No';
 
@@ -153,7 +152,7 @@ const setPresets = () => {
             document.getElementById('numQuestions').value = '15';
             document.getElementById('maxNum').value = '15';
             document.getElementById('minNum').value = '0';           
-            document.getElementById('decimalLength').value = '1';
+            
             repeatQuestion.value = 'Yes';
             negAnswers.value = 'No';
             return;
@@ -162,7 +161,7 @@ const setPresets = () => {
             document.getElementById('numQuestions').value = '20';
             document.getElementById('maxNum').value = '25';
             document.getElementById('minNum').value = '0';           
-            document.getElementById('decimalLength').value = '2';
+            
             repeatQuestion.value = 'Yes';
             negAnswers.value = 'No';
             return;
@@ -170,12 +169,12 @@ const setPresets = () => {
         case '4':
             document.getElementById('numQuestions').value = '25';
             if (testTypeInput.value === 'Addition' || testTypeInput.value === 'Subtraction') {
-                document.getElementById('maxNum').value = '100';
-            } else {
                 document.getElementById('maxNum').value = '50';
+            } else {
+                document.getElementById('maxNum').value = '25';
             }
-            document.getElementById('minNum').value = '-25';           
-            document.getElementById('decimalLength').value = '3';
+            document.getElementById('minNum').value = '0';           
+            
             repeatQuestion.value = 'Yes';
             negAnswers.value = 'Yes';
             return;
@@ -183,12 +182,12 @@ const setPresets = () => {
         case '5':
             document.getElementById('numQuestions').value = '25';
             if (testTypeInput.value === 'Addition' || testTypeInput.value === 'Subtraction') {
-                document.getElementById('maxNum').value = '250';
-            } else {
                 document.getElementById('maxNum').value = '75';
+            } else {
+                document.getElementById('maxNum').value = '30';
             }
-            document.getElementById('minNum').value = '-50';           
-            document.getElementById('decimalLength').value = '3';
+            document.getElementById('minNum').value = '-10';           
+            
             repeatQuestion.value = 'Yes';
             negAnswers.value = 'Yes';
             return;
@@ -196,12 +195,12 @@ const setPresets = () => {
         case '6':
             document.getElementById('numQuestions').value = '25';
             if (testTypeInput.value === 'Addition' || testTypeInput.value === 'Subtraction') {
-                document.getElementById('maxNum').value = '500';
-            } else {
                 document.getElementById('maxNum').value = '100';
+            } else {
+                document.getElementById('maxNum').value = '50';
             }
-            document.getElementById('minNum').value = '-100';           
-            document.getElementById('decimalLength').value = '3';
+            document.getElementById('minNum').value = '-25';           
+            
             repeatQuestion.value = 'Yes';
             negAnswers.value = 'Yes';
             return;
@@ -290,52 +289,20 @@ generateButton.addEventListener('click', (event) => {
 
 showAdvancedOptions.addEventListener('click', (event) => {
     event.preventDefault();
-    for (let i = 0; i < moreOptions.length; i++) {
-        moreOptions[i].style.display= 'block';
-    }
-    for (let i = 0; i < presetOptions.length; i++) {
-        presetOptions[i].style.display = 'none';
-    }
-
-    if (document.getElementById('gradeDiv').style.display === 'none') {
-        if (testTypeInput.value === "Division") {
-            document.getElementById('decLen').style.display = 'block';
-        } else {
-            document.getElementById('decLen').style.display = 'none';
-        }
-    }
+    document.getElementById("xtraOptions").style.display = 'flex';
+    document.getElementById("showOptions").style.display = 'none';
+    document.getElementById("lessOptions").style.display = 'block';
 });
 
 hideAdvancedOptions.addEventListener('click', (event) => {
     event.preventDefault();
-
-    for (let i = 0; i < moreOptions.length; i++) {
-        moreOptions[i].style.display= 'none';
-    }
-    for (let i = 0; i < presetOptions.length; i++) {
-        presetOptions[i].style.display = 'block';
-    }
-
-    if (document.getElementById('gradeDiv').style.display === 'none') {
-        if (testTypeInput.value === "Division") {
-            document.getElementById('decLen').style.display = 'block';
-        } else {
-            document.getElementById('decLen').style.display = 'none';
-        }
-    }
+    document.getElementById("xtraOptions").style.display = 'none';
+    document.getElementById("showOptions").style.display = 'block';
+    document.getElementById("lessOptions").style.display = 'none';
 });
 
-testTypeInput.addEventListener('click', (event) => {
+document.getElementById('testType').addEventListener('click', (event) => {
     event.preventDefault();
-
-    if (document.getElementById('gradeDiv').style.display === 'none') {
-        grade.value = '';
-        if (testTypeInput.value === "Division") {
-            document.getElementById('decLen').style.display = 'block';
-        } else {
-            document.getElementById('decLen').style.display = 'none';
-        }
-    }
     setPresets();
 });
 

@@ -1,9 +1,33 @@
+/* Color Scheme
+color 1: #e3e3e3 light grey
+color 2: #d6d4d2 grey
+color 3: #8b8680 dark grey
+color 4: #ffdf00 yellow
+color 5: #efb90a dark yellow
+*/
+
 /*contact us style sheet */
+
 a {
-    color: #98c1d9;
+    color: #0099ff;
     text-decoration: none;
 }
 
 a:hover {
-    color: #ee6c4d;
+    color: #333333;
+    
+}
+
+p {
+    margin:16px;
+    max-width: 100%;
+}
+
+h3 {
+    text-align: center;
+}
+
+#contactuscontainer {
+    max-width: 75%;
+    margin:auto;
 }

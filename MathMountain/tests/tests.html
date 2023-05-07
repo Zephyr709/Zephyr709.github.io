@@ -17,8 +17,6 @@
                 <h1>MathMountain</h1>
                 <em>Climb to the top of education.</em>
             </div>
-        </header>
-        <main>
             <nav id="main-nav">
                 <ul>
                     <li><a id="home" href="../index.html">Home</a></li>
@@ -27,6 +25,9 @@
                     <li><a id="contact-us" href="../contactUs/contactUs.html">Contact Us</a></li>
                 </ul>
             </nav>
+        </header>
+        <main>
+
 
             <div id="errorModal" class="modal">
 
@@ -43,23 +44,10 @@
 
             <section id="tests">
                 <h2>Test Your Skills</h2>
-                <p>Welcome to test your skills, Choose from the options below to setup your test. <br> 
-                    When your ready click the 'Generate' button and your test will appear.</p>
+                <p id="intro">Welcome to test your skills, Choose from the options below to setup your test. When your ready click the 'Generate' button and your test will appear.</p>
                 
                 <div id="test-options">
-                    <div class="moreOptions">
-                        <label for="numQuestions"> Number of Questions:</label>
-                        <input id="numQuestions" name="numQuestions" value="25" type="number" min="1" max="100" />
-                    </div>
-                    <div class="moreOptions">
-                        <label for="minNum">Lowest Number:</label>
-                        <input id="minNum" name="smallestNum" value="0" type="number" />
-                    </div>
-                    <div class="moreOptions">
-                        <label for="maxNum">Highest Number:</label>
-                        <input id="maxNum" name="largestNum" value="10" type="number" />
-                    </div>
-                    <div id='gradeDiv' class="presetOptions">
+                    <div id='gradeDiv' class="options">
                         <label for="grade">Grade Level:</label>
                         <select id="grade" name="grade">
                             <option value="1">1</option>
@@ -79,14 +67,28 @@
                             <option value="Division">Division</option>
                         </select>
                     </div>  
-                    <div id="decLen" class="moreOptions">
-                        <label for="decimalLength">Decimal Places:</label>
-                        <select id="decimalLength" name="decimalLength">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3" selected>3</option>
-                        </select>
+                    <div class="presetOptions static" id="showOptions">
+                        <button class="button" id="moreOptions" type="button">Show Advanced Options</button>
                     </div>
+                    <div class="moreOptions static" id="lessOptions">
+                        <button class="button" id="hideOptions" type="button">Hide Advanced Options</button>
+                    </div>
+                    
+                </div>
+                <div id="xtraOptions">
+                    <div class="moreOptions">
+                        <label for="numQuestions"> Number of Questions:</label>
+                        <input id="numQuestions" name="numQuestions" value="25" type="number" min="1" max="100" />
+                    </div>
+                    <div class="moreOptions">
+                        <label for="minNum">Lowest Number:</label>
+                        <input id="minNum" name="smallestNum" value="0" type="number" />
+                    </div>
+                    <div class="moreOptions">
+                        <label for="maxNum">Highest Number:</label>
+                        <input id="maxNum" name="largestNum" value="10" type="number" />
+                    </div>
+                    
                     <div class="moreOptions">
                         <label for="repeatQuestion">Repeated Questions?</label>
                         <select id="repeatQuestion" name="repeatQuestion">
@@ -101,13 +103,10 @@
                             <option value="no" selected>No</option>
                         </select>
                     </div>
-                    <div class="presetOptions">
-                        <button class="button" id="moreOptions" type="button">Show Advanced Options</button>
-                    </div>
-                    <div class="moreOptions">
-                        <button class="button" id="hideOptions" type="button">Hide Advanced Options</button>
-                    </div>
-                    <div class="options">
+                </div>
+
+                <div id="primaryAction">
+                    <div class="options static">
                         <button class="button" id="generateButton" type="button">Generate</button>
                     </div>
                 </div>
@@ -121,8 +120,9 @@
                         
                         <div id="QNA">
                             <div id="activeTest" class="borderless">
+                                <p id="questionNum"></p>
                                 <p id="questionPrompt"></p>
-                                <label for="enterAnswer">Enter an answer :</label>
+                                <label for="enterAnswer"></label>
                                 <input id="enterAnswer" name="enterAnswer" value="" type="number" min="0"/>
                                 <button id="submitButton" type="button">Submit</button>
                                 <p id="errorPrompt"></p>

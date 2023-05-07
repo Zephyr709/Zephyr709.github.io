@@ -24,8 +24,6 @@
                 </div>
                 
             </div>
-        </header>
-        <main>
             <nav id="main-nav">
                 <ul>
                     <li><a id="home" href="../index.html">Home</a></li>
@@ -34,6 +32,8 @@
                     <li><a id="contact-us" href="../contactUs/contactUs.html">Contact Us</a></li>
                 </ul>
             </nav>
+        </header>
+        <main>
 
             <div id="errorModal" class="modal">
 
@@ -50,28 +50,16 @@
 
             <section>
                 <h2>Practice Sheets</h2>
-                <p id="intro">Welcome to practice sheets, Choose from the options below to setup your printable sheet. <br> 
-                    When your ready click the 'Generate' button and your practice sheet will be generated.<br>
+                <p id="intro">Welcome to practice sheets, Choose from the options below to setup your printable sheet. 
+                    When your ready click the 'Generate' button and your practice sheet will be generated.
                     If you are satisfied with the generated questions click the 'Print' button, choose your printer, or print to pdf to save the practice sheet as a file.
                 </p>
                 
                 <div id="test-options">
-                    <div class="moreOptions">
-                        <label for="numQuestions"> Number of Questions:</label>
-                        <input id="numQuestions" name="numQuestions" value="10" type="number" min="1" max="100" />
-                    </div>
-                    <div class="moreOptions">
-                        <label for="minNum">Lowest Number:</label>
-                        <input id="minNum" name="smallestNum" value="0" type="number" />
-                    </div>
-                    <div class="moreOptions">
-                        <label for="maxNum">Highest Number:</label>
-                        <input id="maxNum" name="largestNum" value="10" type="number" />
-                    </div>
-                    <div id='gradeDiv' class="presetOptions">
+                    <div id='gradeDiv' class="options">
                         <label for="grade">Grade Level:</label>
                         <select id="grade" name="grade">
-                            <option value="1" selected>1</option>
+                            <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
@@ -82,24 +70,38 @@
                     <div class="options">
                         <label for="testType">Test Type:</label>
                         <select id="testType" name="testType">
-                            <option value="Addition" selected>Addition</option>
+                            <option value="Addition">Addition</option>
                             <option value="Subtraction">Subtraction</option>
                             <option value="Multiplication">Multiplication</option>
                             <option value="Division">Division</option>
                         </select>
                     </div>  
-                    <div id="decLen" class="moreOptions">
-                        <label for="decimalLength">Decimal Places:</label>
-                        <select id="decimalLength" name="decimalLength">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3" selected>3</option>
-                        </select>
+                    <div class="presetOptions static" id="showOptions">
+                        <button class="button" id="moreOptions" type="button">Show Advanced Options</button>
                     </div>
+                    <div class="moreOptions static" id="lessOptions">
+                        <button class="button" id="hideOptions" type="button">Hide Advanced Options</button>
+                    </div>
+                    
+                </div>
+                <div id="xtraOptions">
+                    <div class="moreOptions">
+                        <label for="numQuestions"> Number of Questions:</label>
+                        <input id="numQuestions" name="numQuestions" value="25" type="number" min="1" max="100" />
+                    </div>
+                    <div class="moreOptions">
+                        <label for="minNum">Lowest Number:</label>
+                        <input id="minNum" name="smallestNum" value="0" type="number" />
+                    </div>
+                    <div class="moreOptions">
+                        <label for="maxNum">Highest Number:</label>
+                        <input id="maxNum" name="largestNum" value="10" type="number" />
+                    </div>
+                    
                     <div class="moreOptions">
                         <label for="repeatQuestion">Repeated Questions?</label>
                         <select id="repeatQuestion" name="repeatQuestion">
-                            <option value="yes" selected>Yes</option>
+                            <option value="yes">Yes</option>
                             <option value="no">No</option>
                         </select>
                     </div>
@@ -110,16 +112,13 @@
                             <option value="no" selected>No</option>
                         </select>
                     </div>
-                    <div class="presetOptions">
-                        <button class="button" id="moreOptions" type="button">Show Advanced Options</button>
-                    </div>
-                    <div class="moreOptions">
-                        <button class="button" id="hideOptions" type="button">Hide Advanced Options</button>
-                    </div>
-                    <div class="options">
+                </div>
+
+                <div id="primaryAction" class="centerDiv">
+                    <div class="options static flexgrow">
                         <button class="button" id="generateButton" type="button">Generate</button>
                     </div>
-                    <div class="options">
+                    <div class="options static flexgrow">
                         <button class="button" id="print" type="button" onclick="window.print()">Print</button>
                     </div>
                 </div>

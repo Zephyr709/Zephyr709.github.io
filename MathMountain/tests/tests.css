@@ -1,4 +1,13 @@
 /* Style sheet specific to the test your skills section*/
+
+/* Color Scheme
+color 1: #e3e3e3 light grey
+color 2: #d6d4d2 grey
+color 3: #8b8680 dark grey
+color 4: #ffdf00 yellow
+color 5: #efb90a dark yellow
+*/
+
 /* || Section Styles */
 
 section h2 {
@@ -12,6 +21,14 @@ section p {
 input {
     border:none;
     padding:5px;
+}
+
+#intro {
+    margin:8px;
+    text-align: left;
+    max-width: 75% ;
+    border:none;
+    
 }
 
 /* Method to hide arrows on number inputs */
@@ -45,10 +62,6 @@ button:hover {
     height:50px;
 }
 
-.moreOptions {
-    display:none;
-}
-
 .flexgrow {
     flex-grow: 1;
     text-align: center;
@@ -64,15 +77,18 @@ button:hover {
     width:100%;
     border-radius: 10px;
     border-color: transparent;
-    color: #ee6c4d;
     background-color: transparent;
     font-size: inherit;
-    background-color:#98c1d9;
-    color:#293241;
+    background-color:#0099ff ;
+    color:#333333 ;
     font-weight: bold;
     
 }
 
+.button:hover {
+    background-color: #333333;
+    color:#f5f5f5 ;
+}
 .flexCol {
     display:flex;
     flex-flow: column;
@@ -80,11 +96,14 @@ button:hover {
     
 }
 
+.static {
+    min-width: 250px;
+    max-width: 300px;
+}
+
 /* || Test Styles */
 #test-window {
-    margin: auto;
-    max-width: 90%;
-    width: 60vw;
+    margin: 8px;
     min-height: 70vh;
     border-radius: 25px;
     padding:10px;
@@ -94,9 +113,9 @@ button:hover {
 }
 
 #test-window div,p {
-    border: 3px solid #ee6c4d;
+    border: 1px solid #333333;
     padding:10px;
-    color:white;
+    color:#333333;
     text-align: center;
 }
 
@@ -145,19 +164,35 @@ button:hover {
     padding:5px;
 }
 
+input {
+    border:1px solid #333333;
+}
 #enterAnswer {
     width:75px;
+    height:36px;
     border-radius: 10px;
     text-align: center;
+    font-size: inherit;
+    border: 1px solid #333333;
+    
 }
 
 #submitButton {
     padding:5px;
+    height: 36px;
     border-radius: 10px;
-    border-color: rgba(0,0,0,0);
+    width: 150px;
+    border: 1px solid #333333;
     font-weight: bold;
+    font-size: inherit;
+    background-color:#0099ff ;
+    color:#333333 ;
 }
 
+#submitButton:hover {
+    background-color: #333333;
+    color:#f5f5f5 ;
+}
 #activeTest {
     margin-top: -10px;
     padding-top:0px;
@@ -183,10 +218,21 @@ button:hover {
 }
 
 #errorPrompt {
-    color: indianred;
+    color: red;
     font-weight: bold;
 }
 
+#questionNumber {
+    float:left;
+}
+
+#questionNum {
+    float:left;
+}
+
+#questionPrompt {
+    margin:auto;
+}
 /* || Tests Options styles */
 
 #test-options {
@@ -210,6 +256,35 @@ button:hover {
     
 }
 
+#xtraOptions {
+    padding:10px;
+    margin: 10px;
+    display: none;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    gap:20px;
+
+}
+#xtraOptions input {
+    width:40px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#xtraOptions select {
+    padding: 3px;
+    border-radius: 10px;
+    
+}
+
+#showOptions {
+    display:block;
+}
+
+#lessOptions {
+    display:none;
+}
+
 /* || Modal Styles*/
 .modal {
     display: none; 
@@ -224,10 +299,10 @@ button:hover {
 }
 
 .modal-content {
-    background-color: #293241;
+    background-color: #f5f5f5;
     margin: 25% auto; 
     padding: 20px;
-    border: 3px solid #ee6c4d;
+    border: 3px solid #333333;
     border-radius: 25px;
     width: 80%; 
 }
@@ -239,7 +314,7 @@ button:hover {
 }
 
 .modal-content ol li {
-    font-weight: bolder;
+    font-weight: bold;
     color:white;
     list-style: upper-roman;
 }
