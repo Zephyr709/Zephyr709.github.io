@@ -417,9 +417,10 @@ enterAnswer.addEventListener('keyup', (event) => {
                 return;
             }
            
-            let {strParam,numParam} = generateQuestion();
+            let {strParam,numParam,simpleString} = generateQuestion();
             strQuestion = strParam;
             answer = numParam;
+            simpleStr = simpleString;
             setQuestionPrompt(strQuestion, qCounter, numQs);
         }
     }
